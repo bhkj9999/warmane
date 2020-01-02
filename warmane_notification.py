@@ -2,7 +2,7 @@ import requests
 from bs4 import BeautifulSoup
 import hashlib
 
-def getRes(url):
+def getFormattedRes(url):
     res = requests.get(url)
     
     formattedRes = BeautifulSoup(res.text, 'html.parser')
@@ -12,7 +12,7 @@ def getRes(url):
 def getAllPelement():
     url = 'https://www.warmane.com/'
 
-    text = getRes(url)
+    text = getFormattedRes(url)
 
     all_P_Tag = text.findAll('p')
 
@@ -41,5 +41,5 @@ def md5():
     md5.update(str(final).encode('utf-8'))
 
     print(md5.hexdigest())
-    
+
     return md5.hexdigest()
