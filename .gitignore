@@ -2,6 +2,9 @@
 passwd.py
 Receiver.py
 
+# Mac Temp FIle
+*.DS_Store
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
