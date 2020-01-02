@@ -1,3 +1,13 @@
+'''
+@Author: Henry Zhang
+@Github: https://github.com/bhkj9999
+@Date: 2020-01-01 21:09:04
+@LastEditTime : 2020-01-02 11:34:10
+@LastEditors  : Henry Zhang
+@Description: Retrive the event information and notify
+@FilePath: /warmane/warmane_notification.py
+'''
+
 import requests
 from bs4 import BeautifulSoup
 import hashlib
@@ -28,10 +38,11 @@ def getAllPelement():
 
 def printElement():
     final = getAllPelement()
+    
+    for i in final:
+        print (i + "\n")
 
-    print(final)
-
-    return final
+    return
 
 def md5():
     final = getAllPelement()
