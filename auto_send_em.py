@@ -2,7 +2,7 @@
 @Author: Henry Zhang
 @Date: 2020-01-02 11:07:04
 @LastEditors  : Henry Zhang
-@LastEditTime : 2020-01-02 17:19:47
+@LastEditTime : 2020-01-02 17:52:42
 @Github: https://github.com/bhkj9999
 '''
 import smtplib
@@ -31,7 +31,7 @@ def sendInfo(text):
     except Exception as e:
         Sendto = receiver[0]
         subject = "Warmane Event Check On Los Angeles Time: " + time.ctime()
-        errorText = " Something Wrong \n" + e
+        errorText = " Something Wrong \n" + str(e)
         msg = "Subject: {}\n\n{}".format(subject, errorText)
         server = smtplib.SMTP("smtp.gmail.com", 587)
         server.ehlo()
