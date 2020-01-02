@@ -2,7 +2,7 @@
 @Author: Henry Zhang
 @Date: 2020-01-02 11:07:04
 @LastEditors  : Henry Zhang
-@LastEditTime : 2020-01-02 17:52:42
+@LastEditTime : 2020-01-02 18:40:58
 @Github: https://github.com/bhkj9999
 '''
 import smtplib
@@ -19,7 +19,7 @@ def sendInfo(text):
     accountpassword = Password
     
     try:
-        Sendto = receiver[0]
+        Sendto = receiver
         subject = "Warmane Event Check On Los Angeles Time: " + time.ctime()
         msg = "Subject: {}\n\n{}".format(subject, text)
         server = smtplib.SMTP("smtp.gmail.com", 587)
