@@ -32,7 +32,8 @@ def getAllPelement():
 
     for i in all_P_Tag:
         if(filter_A in str(i)):
-            result.append(str(i))
+            processedString = str(i).replace('<p>', '').replace('<a href="', 'at ').replace('">here</a>.</p>', '').replace('<!--StartFragment-->', '').replace('">here</a>.<!--EndFragment--></p>', '')
+            result.append(processedString)
 
     return result
 
