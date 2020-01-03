@@ -9,7 +9,7 @@
 import warmane_notification
 import auto_send_em
 import recordExample
-import os, time
+import os, time, platform
 
 
 def saveToFile():
@@ -17,15 +17,22 @@ def saveToFile():
     Latest_Event_List = warmane_notification.getAllPelement()
     Latest_Event = Latest_Event_List[0]
 
-    # location = os.getcwd()
-    # file = open(location + "/record "  + time.ctime() + ".txt", 'a')
-    if(recordExample.md5 != md5 and recordExample.content != Latest_Event ):
-        auto_send_em.sendInfo(md5 + "\n" + Latest_Event)
-        # file.write(md5 + Latest_Event + "Time of LA" + time.ctime() + "\n" )
-        # file.close()
+    location = os.getcwd()
+    sysstr = platform.system()
+
+    if(sysstr == "Windows"):
+        filePath = open(location + r"\recordExample.py", 'r+')
     else:
-        auto_send_em.sendInfo("Nothing Changed \n\n" + "MD5 Check \n" + md5 + "\n" + "The Latest Event is \n" + Latest_Event)
-        # file.write("md5 and Latest_Event Didn't Change on Time of LA" + time.ctime() + "\n" )
-        # file.close()
-    
+        filePath = open(location + "/recordExample.py", 'r+')
+
+    if( recordExample.md5 != md5 ):
+        auto_send_em.sendInfo("Latest Event Found \n\n" + "MD5 Check \n" + md5 + "\n\n" + "The Latest Event is \n" + Latest_Event)
+        print("Latest Event Found \n\n" + "MD5 Check \n" + md5 + "\n\n" + "The Latest Event is \n" + Latest_Event)
+        filePath.write("md5 = " + r'"' + md5 + r'"')
+    else:
+        auto_send_em.sendInfo("Nothing Changed \n\n" + "MD5 Check \n" + md5 + "\n\n" + "The Latest Event is \n" + Latest_Event)
+        print("Nothing Changed \n\n" + "MD5 Check \n" + md5 + "\n" + "\n" + "The Latest Event is \n" + Latest_Event)
+        filePath.write("md5 = " + r'"' + md5 + r'"')
+
+    filePath.close()
     return 
