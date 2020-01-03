@@ -30,7 +30,7 @@ def saveToFile():
         print("Latest Event Found \n\n" + "MD5 Check \n" + md5 + "\n\n" + "The Latest Event is \n" + Latest_Event)
         filePath.write("md5 = " + r'"' + md5 + r'"')
     else:
-        auto_send_em.sendInfo("Nothing Changed \n\n" + "MD5 Check \n" + md5 + "\n\n" + "The Latest Event is \n" + Latest_Event)
+        # auto_send_em.sendInfo("Nothing Changed \n\n" + "MD5 Check \n" + md5 + "\n\n" + "The Latest Event is \n" + Latest_Event)
         print("Nothing Changed \n\n" + "MD5 Check \n" + md5 + "\n" + "\n" + "The Latest Event is \n" + Latest_Event)
         filePath.write("md5 = " + r'"' + md5 + r'"')
 
