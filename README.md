@@ -1,4 +1,4 @@
-# ***warmane Event Tracking***
+# ***Warmane Event Tracking***
  
 ## Project Target
 ### Send Request To Waramene Website To Get the latest Event, and send the Event Title & HTML link to your Email Address
