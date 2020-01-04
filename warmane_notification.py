@@ -14,15 +14,15 @@ import hashlib
 
 def getFormattedRes(url):
     res = requests.get(url)
+
+    resCode = res.status_code
     
     formattedRes = BeautifulSoup(res.text, 'html.parser')
 
-    return formattedRes
+    return formattedRes, resCode
 
-def getAllPelement():
-    url = 'https://www.warmane.com/'
-
-    text = getFormattedRes(url)
+def getAllPelement(url):
+    text = getFormattedRes(url)[0] if getFormattedRes(url)[0] else 'Error'
 
     all_P_Tag = text.findAll('p')
 
@@ -33,25 +33,24 @@ def getAllPelement():
     for i in all_P_Tag:
         if(filter_A in str(i)):
             processedString = str(i).replace('<p>', '').replace('<a href="', 'at ').replace('">here</a>.</p>', '').replace('<!--StartFragment-->', '').replace('">here</a>.<!--EndFragment--></p>', '')
+            # processedString = processedString + 'TryError'
             result.append(processedString)
 
     return result
 
-def printElement():
-    final = getAllPelement()
+def printElement(url):
+    final = getAllPelement(url)
     
     for i in final:
         print (i + "\n")
 
     return
 
-def md5():
-    final = getAllPelement()
+def md5(url):
+    final = getAllPelement(url)
 
     md5 = hashlib.md5()
 
     md5.update(str(final).encode('utf-8'))
-
-    print(md5.hexdigest())
 
     return md5.hexdigest()
