@@ -27,22 +27,20 @@ def sendInfo(text):
     accountname = account
     accountpassword = password
 
+    server = smtplib.SMTP("smtp.gmail.com", 587)
+    server.ehlo()
+    server.starttls()
+
     subject = "Warmane Event Check On Los Angeles Time: " + time.ctime()
 
     try:
         Sendto = receiver
         msg = "Subject: {}\n\n{}".format(subject, text)
+        server.login(accountname, accountpassword)
+        server.sendmail(accountname, Sendto, msg)
+        server.quit()
     except Exception as e:
-        # set the first receiver to your email Address, so you can get the error message
-        Sendto = receiver[0]
         errorText = " Something Wrong \n" + str(e)
         msg = "Subject: {}\n\n{}".format(subject, errorText)
-
-    server = smtplib.SMTP("smtp.gmail.com", 587)
-    server.ehlo()
-    server.starttls()
-    server.login(accountname, accountpassword)
-    server.sendmail(accountname, Sendto, msg)
-    server.quit()
 
     return msg
