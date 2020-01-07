@@ -1,3 +1,10 @@
+'''
+@Author: Henry Zhang
+@Date: 2020-01-06 11:36:42
+@LastEditors  : Henry Zhang
+@LastEditTime : 2020-01-06 11:39:58
+@Github: https://github.com/bhkj9999
+'''
 import sqlite3 as sDB
 
 def TODO():
@@ -16,6 +23,7 @@ def createDataBase():
     conn.close()
 
     return
+
 
 def dataBaseRead():
     conn = sDB.connect('sqlite3.db')

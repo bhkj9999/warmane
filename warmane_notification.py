@@ -2,7 +2,7 @@
 @Author: Henry Zhang
 @Github: https://github.com/bhkj9999
 @Date: 2020-01-01 21:09:04
-@LastEditTime : 2020-01-02 11:34:10
+@LastEditTime : 2020-01-06 11:39:09
 @LastEditors  : Henry Zhang
 @Description: Retrive the event information and notify
 @FilePath: /warmane/warmane_notification.py
